@@ -37,39 +37,39 @@ function Cards(props) {
         <div className='cards'>
             <div className='container card'>
                 {isloading && <h1 style={{ textAlign: "center", width: "100%" }}>Loading...</h1>}
+                
                 {
-                    props.showWishlist && props.wishlist?.map((item) => (
-                        <div key={item.imdbID} className='all-movie'>
-                            <div className='movie'>
-                                <img alt='' src={item.Poster} className='movie--img' />
-                                <span className='movie--name'>{item.Title}</span>
-                                <span className='movie--year'>Year: {item.Year}</span>
-                                <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
-                                    <i className="fa fa-heart-o" style={{ fontSize: "28px" }}></i>
-                                </span>
+                    !props.showWishlist
+                        ? props.movies.Search ? props.movies.Search.map((item) => (
+                            <div key={item.imdbID} className='all-movie'>
+                                <div className='movie'>
+                                    <img alt='' src={item.Poster} className='movie--img' />
+                                    <span className='movie--name'>{item.Title}</span>
+                                    <span className='movie--year'>Year: {item.Year}</span>
+                                    <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
+                                        <i className="fa fa-heart-o" style={{ fontSize: "28px" }}></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    ))
-                }
+                        )) : <h1>Data Not Found</h1>
 
-                {
-                    !props.showWishlist && props.movies.Search?.map((item) => (
-                        <div key={item.imdbID} className='all-movie'>
-                            <div className='movie'>
-                                <img alt='' src={item.Poster} className='movie--img' />
-                                <span className='movie--name'>{item.Title}</span>
-                                <span className='movie--year'>Year: {item.Year}</span>
-                                <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
-                                    <i className="fa fa-heart-o" style={{ fontSize: "28px" }}></i>
-                                </span>
+                        : props.wishlist.length ? props.wishlist.map((item) => (
+                            <div key={item.imdbID} className='all-movie'>
+                                <div className='movie'>
+                                    <img alt='' src={item.Poster} className='movie--img' />
+                                    <span className='movie--name'>{item.Title}</span>
+                                    <span className='movie--year'>Year: {item.Year}</span>
+                                    <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
+                                        <i className="fa fa-heart-o" style={{ fontSize: "28px" }}></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    ))
+                        )) : <h1>Data Not Found</h1>
                 }
 
 
             </div>
-        </div>
+        </div >
     )
 }
 
