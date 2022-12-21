@@ -40,7 +40,7 @@ function Cards(props) {
                     props.showWishlist && props.wishlist?.map((item) => (
                         <div key={item.imdbID} className='all-movie'>
                             <div className='movie'>
-                                <img src={item.Poster} className='movie--img' />
+                                <img alt='' src={item.Poster} className='movie--img' />
                                 <span className='movie--name'>{item.Title}</span>
                                 <span className='movie--year'>Year: {item.Year}</span>
                                 <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
@@ -55,7 +55,7 @@ function Cards(props) {
                     !props.showWishlist && props.movies.Search?.map((item) => (
                         <div key={item.imdbID} className='all-movie'>
                             <div className='movie'>
-                                <img src={item.Poster} className='movie--img' />
+                                <img alt='' src={item.Poster} className='movie--img' />
                                 <span className='movie--name'>{item.Title}</span>
                                 <span className='movie--year'>Year: {item.Year}</span>
                                 <span style={{ background: props.wishlist.includes(item) ? "red" : "green" }} onClick={() => getHeart(item)} className='movie--heart'>
