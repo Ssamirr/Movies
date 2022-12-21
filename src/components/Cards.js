@@ -8,7 +8,7 @@ function Cards(props) {
 
     useEffect(() => {
         setIsloading(true)
-        fetch(`https://www.omdbapi.com/?s=${props.search || "Harry"}&apikey=ed0e95ee`)
+        fetch(`https://www.omdbapi.com/?s=${props.search.trim() || "Harry"}&apikey=ed0e95ee`)
             .then(res => res.json())
             .then(data => {
                 props.setMovies(data);
@@ -18,6 +18,7 @@ function Cards(props) {
             .catch(err => {
                 console.log(err);
             })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.check])
 
     const getHeart = (item) => {
