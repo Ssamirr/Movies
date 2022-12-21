@@ -36,10 +36,8 @@ function Cards(props) {
     return (
         <div className='cards'>
             <div className='container card'>
-                {isloading && <h1 style={{ textAlign: "center", width: "100%" }}>Loading...</h1>}
-                
-                {
-                    !props.showWishlist
+                {isloading ? <div className='loader'> <span className="loader--inside"></span> </div>
+                    : !props.showWishlist
                         ? props.movies.Search ? props.movies.Search.map((item) => (
                             <div key={item.imdbID} className='all-movie'>
                                 <div className='movie'>
@@ -65,6 +63,7 @@ function Cards(props) {
                                 </div>
                             </div>
                         )) : <h1>Data Not Found</h1>
+
                 }
 
 
