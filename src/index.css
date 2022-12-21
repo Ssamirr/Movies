@@ -55,7 +55,7 @@ button {
   box-shadow: 0 0 12px rgb(0 0 0);
 }
 
-input{
+input {
   box-shadow: 0 0 12px rgb(0 0 0);
 }
 
@@ -93,16 +93,13 @@ button:hover {
   box-shadow: 0 0 12px rgb(0 0 0);
 }
 
-.card .all-movie:nth-child(4n) .movie {
-  margin-right: 0px;
-}
 
 
 
 .movie--img {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: fill;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -178,5 +175,66 @@ button:hover {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .card .all-movie:nth-child(4n) .movie {
+    margin-right: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 991px) {
+  .all-movie {
+    width: calc(100%/3);
+  }
+
+  .card .all-movie:nth-child(3n) .movie {
+    margin-right: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 992px) and (min-width: 767px) {
+  .all-movie {
+    width: calc(100%/2);
+  }
+
+  .card .all-movie:nth-child(2n) .movie {
+    margin-right: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 767px){
+  .all-movie {
+    width: calc(100%);
+  }
+
+  .header--right button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header--left input {
+    width: 100%;
+  }
+
+  .card .all-movie:nth-child(1n) .movie {
+    margin-right: 0px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .movie--img{
+    height: 200px;
+  }
+  .movie{
+    height: 320px;
   }
 }
